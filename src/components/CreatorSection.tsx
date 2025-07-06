@@ -1,8 +1,12 @@
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DollarSign, TrendingUp, Users, Sparkles } from "lucide-react";
+import WaitlistModal from "./WaitlistModal";
 
 const CreatorSection = () => {
+  const [showWaitlistModal, setShowWaitlistModal] = useState(false);
+  
   const features = [
     {
       icon: DollarSign,
@@ -27,7 +31,12 @@ const CreatorSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 relative overflow-hidden">
+    <>
+      <WaitlistModal 
+        isOpen={showWaitlistModal} 
+        onClose={() => setShowWaitlistModal(false)} 
+      />
+      <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 relative overflow-hidden">
       {/* Background Animation */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-pink-400/10 to-indigo-400/10 animate-gradient-shift bg-[length:400%_400%]"></div>
       
@@ -49,6 +58,7 @@ const CreatorSection = () => {
           </p>
           <Button 
             size="lg"
+            onClick={() => setShowWaitlistModal(true)}
             className="font-inter font-semibold text-lg px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
           >
             Join the Waitlist
@@ -76,6 +86,7 @@ const CreatorSection = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

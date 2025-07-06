@@ -1,8 +1,17 @@
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import WaitlistModal from "./WaitlistModal";
 
 const HeroSection = () => {
+  const [showWaitlistModal, setShowWaitlistModal] = useState(false);
+
   return (
+    <>
+      <WaitlistModal 
+        isOpen={showWaitlistModal} 
+        onClose={() => setShowWaitlistModal(false)} 
+      />
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-100">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-pink-400/20 via-purple-400/20 to-indigo-400/20 animate-gradient-shift bg-[length:400%_400%]"></div>
@@ -36,6 +45,7 @@ const HeroSection = () => {
             <Button 
               variant="outline" 
               size="lg"
+              onClick={() => setShowWaitlistModal(true)}
               className="font-inter font-semibold text-lg px-8 py-4 border-2 border-purple-300 text-purple-700 hover:bg-purple-50 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Join Waitlist
@@ -44,6 +54,7 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
