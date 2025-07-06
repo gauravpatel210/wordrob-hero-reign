@@ -107,7 +107,7 @@ const ProductGrid = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section id="products" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         {/* Sticky Search Bar */}
         <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-200 pb-6 mb-12">

@@ -38,6 +38,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               size="lg" 
+              onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
               className="font-inter font-semibold text-lg px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
             >
               Explore Products
